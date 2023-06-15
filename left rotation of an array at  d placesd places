@@ -1,0 +1,31 @@
+brute force:
+=========================
+=> we can take temp array store elements 
+=>swap elements from k pos to 0.
+after from n-k assign elemnets from temp array to given array 
+timecomplexity:O(n-k)+O(k)==O(n)
+space complexity:temp array=O(k)
+====================================
+optimized:
+====================
+=>by observing we can reverse array by that we can solve 
+=> first given k positions if k==n then array will be same no need of doing anything
+else if k>n after doing n rotation array will be same .so we can divide if suppose len array is 7 and given postions to swap is 7 then no change
+if k=14 ,n=7
+k=n+n
+=>in this case we can simply take mod
+k=k%n 
+=====================================================================================================================================================================code:
+-------------
+class Solution:
+    def leftRotate(self, arr, k, n):
+        if k>n:
+            k=k%n
+        arr[:k]=arr[0:k][::-1]
+        arr[k:]=arr[k:][::-1]
+        arr[::]=arr[::-1]
+        
+time complexity:O(n)+O(k)+O(n-k)
+space complexity:----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
