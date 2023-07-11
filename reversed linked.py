@@ -1,21 +1,40 @@
 intution:
 =>first we have to observe to reverse an array we just need to chnage the pointers 
-=>keep the last pointer to first node of an ll.
-=>and first node link adress to 2nd and to 3rd repeat same process.
-=>for this we need a temp pointer while do swapping adress of the nodes.
+=> so we take three pointers prev curr next 
+=>intially we store prev=Null curr=head next=cur.next 
+=>we have to change the pointers
+=>we have to curr.next=prev
+=>after we change the positions of curr and prev and next to one tsep forward and repat the same
+=>next our prev=curr;curr=next;next=curr.next
 time complexity :O(n)
 space complexity:O(1)
 ==============================================================================================================================================================================
-code:
-def reverse(self,head):
-  curr=head
-  prev=None
-  while curr!=None:
-    temp=curr.next 
-    curr.next=None 
-    prev=current
-    current=temp 
-  return prev
+#function Template for python3
+
+"""
+# Node Class
+
+class node:
+    def __init__(self, val):
+        self.data = val
+        self.next = None
+
+"""
+
+class Solution:
+    #Function to reverse a linked list.
+    def reverseList(self, head):
+        # Code here
+        prev=None 
+        curr=head 
+        next1=curr.next 
+        while curr:
+            curr.next=prev 
+            prev=curr 
+            curr=next1
+            if next1:
+                next1=curr.next
+        return prev           
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 opyimized approach:
 ------------------
